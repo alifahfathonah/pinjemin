@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Sanggam</title>
 
     <!-- Fontfaces CSS-->
     <link href="<?=base_url()?>assets_tmp/css/font-face.css" rel="stylesheet" media="all">

@@ -2,7 +2,7 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="#">
-            KITA BANTU
+            SANGGAM
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
@@ -26,10 +26,12 @@
                         </li>
                     </ul>
                 </li> -->
+                <?php if($this->session->userdata('level') != 'admin'){?>
                 <li class="<?=$link=='user_dashboard' ? 'active' : ''?>">
                     <a href="<?=base_url()?>user">
                         <i class="fas fa-tachometer-alt "></i>Dashboard</a>
                 </li>
+                
                 <li class="<?=$link=='user_profil' ? 'active' : ''?>">
                     <a href="<?=base_url()?>user/profil">
                         <i class="fas fa-user "></i>Profil</a>
@@ -38,6 +40,18 @@
                     <a href="<?=base_url()?>user/ajukan_pinjaman">
                         <i class="fas  fa-usd"></i>Ajukan Pinjam</a>
                 </li>
+                <?php }else{?>
+                <li class="<?=$link=='admin_dashboard' ? 'active' : ''?>">
+                    <a href="<?=base_url()?>admin">
+                        <i class="fas fa-tachometer-alt "></i>Dashboard
+                    </a>
+                </li>
+                <li class="<?=$link=='admin_list_user' ? 'active' : ''?>">
+                    <a href="<?=base_url()?>admin/list_user">
+                        <i class="fas fa-user "></i>Customer
+                    </a>
+                </li>
+                <?php }?>
                 <!-- <li>
                     <a href="table.html">
                         <i class="fas fa-table"></i>Tables</a>

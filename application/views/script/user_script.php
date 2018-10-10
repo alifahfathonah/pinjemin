@@ -26,6 +26,29 @@
                 }
             });
         });
+
+        $(document).on('submit', '#form_pinjaman', function(e){
+            e.preventDefault();
+            $('#notif_pinjaman').html('Loading...');
+            var data = new FormData(document.getElementById('form_pinjaman'));
+            $.ajax({
+                url : '<?=base_url()?>user/tambah_pinjaman',
+                type : 'POST',
+                data : data,
+                processData: false, 
+                contentType: false, 
+                dataType: "JSON",
+                success: function(msg){
+                    if(msg.status == 'success'){
+                        $('#notif_pinjaman').html(msg.textnya);
+                        location.reload();
+                    }else{
+                        $('#notif_pinjaman').html(msg.textnya);
+                    }
+                }
+            });
+        });
+        
 	});
 
     
@@ -55,7 +78,7 @@
                 	</select>
                 </div>
                 <div class="form-group">
-                	<label>FIle</label>
+                	<label>FIle (max: 200kb)</label>
                 	<input type="file" name="nama_file" class="form-control" required>
                 </div>
                 <div id="notif_file"></div>

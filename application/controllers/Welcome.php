@@ -45,35 +45,43 @@ class Welcome extends CI_Controller {
 			'level' => 'customer'
 		);
 
-		
-		$this->db->trans_begin();
-
-		$simpan = $this->db->insert('tb_customer', $data);
-		$simpan_user = $this->db->insert('tb_user', $data_user);
-
-		if ($this->db->trans_status() === FALSE)
-		{
-	        $this->db->trans_rollback();
-	        echo 'Terjadi kesalahan, data gagal disimpan...<br/><a href="'.base_url().'">Kembali ke halaman utama</a>';
+		$cek = $this->db->get_where('tb_customer', array('nik' => $this->input->post('nik', true)) );
+		if($cek != 0){
+			echo 'NIK sudah terdaftar<br/><a href="'.base_url().'">Kembali ke halaman utama</a>';
 		}else{
-	        $this->db->trans_commit();
-	        echo 'Sukses, data Berhasil disimpan...<br/><a href="'.base_url().'welcome/login">Silahkan login disini dengan username NIK anda, dan password tanggal lahir anda</a>';
+			$this->db->trans_begin();
+
+			$simpan = $this->db->insert('tb_customer', $data);
+			$simpan_user = $this->db->insert('tb_user', $data_user);
+
+			if ($this->db->trans_status() === FALSE)
+			{
+		        $this->db->trans_rollback();
+		        echo 'Terjadi kesalahan, data gagal disimpan...<br/><a href="'.base_url().'">Kembali ke halaman utama</a>';
+			}else{
+		        $this->db->trans_commit();
+		        echo 'Sukses, data Berhasil disimpan...<br/><a href="'.base_url().'welcome/login">Silahkan login disini dengan username NIK anda, dan password tanggal lahir anda</a>';
+			}
 		}
+		
 	}
 
 	public function proses_login(){
 		$username = $this->input->post('username', true);
 		$password = $this->input->post('password', true);
 		$cek = $this->db->get_where('tb_user', array('username' => $username));
+
 		if($cek->num_rows() == 0){
 			echo '<script>alert("username tidak ditemukan");window.location = "'.base_url().'";</script>';
 		}else{
+			$get_data = $this->db->get_where('tb_customer', array('nik' => $username));
 			$password_di_db =  $cek->row()->password;
 			if(password_verify($password, $password_di_db)){
 				$ses = array(
 					'is_login' => true,
 					'username' => $username,
-					'level' => $cek->row()->level
+					'level' => $cek->row()->level,
+					'nama' => $get_data->row()->nama_customer
 				);
 				$this->session->set_userdata($ses);
 				if($cek->row()->level == 'admin'){
