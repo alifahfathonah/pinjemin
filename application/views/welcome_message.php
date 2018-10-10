@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <head>
   <meta charset="utf-8">
-  <title>Kita Bantu</title>
+  <title>Sanggam</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand smothscroll" href="#home"><b>Kita Bantu</b></a>
+        <a class="navbar-brand smothscroll" href="#home"><b>Sanggam</b></a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container">
         <div class="row centered">
           <div class="col-lg-12">
-            <h1><b>Kita Bantu</b></h1>
+            <h1><b>Sanggam</b></h1>
             <h3><i>"Membantu memberikan solusi keuangan"</i></h3>
             <br>
           </div>
@@ -265,12 +265,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="form-group">
               <label for="contact-subject">Email</label>
-              <input type="email" name="email" class="form-control" id="contact-subject"  required>
+              <input type="email" name="email" class="form-control" id="contact-subject" placeholder="Email"  required>
               <div class="validate"></div>
             </div>
             <div class="form-group">
               <label for="contact-subject">Nomor HP</label>
-              <input type="number" name="nomor_hp" class="form-control" id="contact-subject" placeholder="Tempat Lahir" data-rule="minlen:5" data-msg="Please enter at least 8 chars of subject" required>
+              <input type="number" name="nomor_hp" class="form-control" id="contact-subject" placeholder="Nomor HP" data-rule="minlen:5" data-msg="Please enter at least 8 chars of subject" required>
               <div class="validate"></div>
             </div>
             <div class="form-group">
@@ -296,7 +296,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <div id="copyrights">
     <div class="container">
       <p>
-        &copy; Copyrights <strong>Kita Bantu</strong>. All Rights Reserved 
+        &copy; Copyrights <strong>Sanggam</strong>. All Rights Reserved 
       </p>
       <div class="credits">
         <!--
@@ -305,7 +305,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/pratt-app-landing-page-template/
           Licensing information: https://templatemag.com/license/
         -->
-        Created with Kita Bantu template by <a href="https://templatemag.com/">TemplateMag</a>
+        Created with Sanggam template by <a href="https://templatemag.com/">TemplateMag</a>
       </div>
     </div>
   </div>
